@@ -1,20 +1,11 @@
 WITH source AS (
-
-    SELECT * 
-    FROM {{ source('raw', 'raw_stores') }}
-
-),
-
-cleaned AS (
-
-    SELECT
-        store_id,
-        dept_id,
-        store_type,
-        store_size
-
-    FROM source
-
+    SELECT * FROM {{ source('raw', 'RAW_STORES') }}
 )
 
-SELECT * FROM cleaned
+SELECT
+    store                           AS store_id,
+    type                            AS store_type,
+    size                            AS store_size,
+    CURRENT_TIMESTAMP()             AS insert_date,
+    CURRENT_TIMESTAMP()             AS update_date
+FROM source

@@ -4,8 +4,7 @@ sources:
   - name: raw
     database: WALMART_DB
     schema: RAW
-
     tables:
-      - name: raw_fact
-      - name: raw_stores
-      - name: raw_department
+      - name: RAW_STORES
+      - name: RAW_DEPARTMENT
+      - name: RAW_FACT
