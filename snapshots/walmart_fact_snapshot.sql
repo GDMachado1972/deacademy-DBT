@@ -41,6 +41,7 @@ final AS (
         sd.store_id,
         sd.dept_id,
         dd.date_id,
+        dep.store_date,                 -- ← added this
         sd.store_size,
         dep.store_weekly_sales,
         f.fuel_price,
