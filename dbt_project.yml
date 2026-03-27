@@ -40,3 +40,12 @@ models:
     staging:
       +schema: STAGING
       +materialized: view
+    marts:
+      +schema: MARTS
+      +materialized: table
+
+snapshots:
+  walmart_dbt_project:
+    +target_schema: MARTS
+    +strategy: timestamp
+    +updated_at: update_date
