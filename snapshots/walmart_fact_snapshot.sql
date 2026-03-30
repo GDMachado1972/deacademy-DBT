@@ -1,3 +1,12 @@
+{#
+  SCD2 JUSTIFICATION:
+  Weekly sales figures in this dataset are subject to retroactive correction —
+  Walmart adjusts reported weekly_sales after returns, voids, and accounting
+  reconciliations are processed. SCD2 allows us to preserve the originally
+  reported figure alongside the corrected value, enabling audit trails and
+  point-in-time reporting. For standard BI consumption, always use the
+  walmart_fact_current view which filters dbt_valid_to IS NULL.
+#}
 {% snapshot walmart_fact_snapshot %}
 
 {{
