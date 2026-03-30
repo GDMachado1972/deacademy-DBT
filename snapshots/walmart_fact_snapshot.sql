@@ -12,7 +12,7 @@
 {{
     config(
         target_schema='MARTS',
-        unique_key='store_id || dept_id || store_date',
+        unique_key='fact_key',       
         strategy='check',
         check_cols=[
             'store_weekly_sales',
@@ -47,6 +47,11 @@ date_dim AS (
 
 final AS (
     SELECT
+    MD5(
+            CAST(dep.store_id AS VARCHAR) || '-' ||
+            CAST(dep.dept_id  AS VARCHAR) || '-' ||
+            CAST(dep.store_date AS VARCHAR)
+        ) AS fact_key,                  -- hashed surrogate
         sd.store_id,
         sd.dept_id,
         dd.date_id,
