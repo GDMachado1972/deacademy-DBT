@@ -2,6 +2,11 @@
 -- We will use this for all BI reporting to avoid double counting SCD2 versions
 
 SELECT
+     MD5(
+        CAST(store_id AS VARCHAR) || '-' ||
+        CAST(dept_id  AS VARCHAR) || '-' ||
+        CAST(store_date AS VARCHAR)
+    )                           AS fact_key,
     store_id,
     dept_id,
     date_id,
