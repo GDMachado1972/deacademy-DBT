@@ -6,7 +6,7 @@ departments AS (
     SELECT DISTINCT
         store_id,
         dept_id
-    FROM {{ ref('stg_department') }}
+    FROM {{ ref('stg_sales') }}
 ),
 
 final AS (

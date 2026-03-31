@@ -30,11 +30,11 @@
 }}
 
 WITH department AS (
-    SELECT * FROM {{ ref('stg_department') }}
+    SELECT * FROM {{ ref('stg_sales') }}
 ),
 
 fact AS (
-    SELECT * FROM {{ ref('stg_fact') }}
+    SELECT * FROM {{ ref('stg_features') }}
 ),
 
 store_dim AS (

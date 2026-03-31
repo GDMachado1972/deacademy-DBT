@@ -1,5 +1,5 @@
 WITH source AS (
-    SELECT * FROM {{ source('raw', 'RAW_FACT') }}
+    SELECT * FROM {{ source('raw', 'RAW_FEATURES') }}
 )
 
 SELECT

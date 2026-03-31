@@ -2,7 +2,7 @@ WITH date_source AS (
     SELECT DISTINCT
         store_date,
         isholiday
-    FROM {{ ref('stg_department') }}
+    FROM {{ ref('stg_sales') }}
 ),
 
 final AS (
