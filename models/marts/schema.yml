@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: walmart_date_dim
+    columns:
+      - name: date_id
+        tests:
+          - unique
+          - not_null
+      - name: store_date
+        tests:
+          - unique
+          - not_null
+      - name: isholiday
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['TRUE', 'FALSE']
+
+  - name: walmart_store_dim
+    columns:
+      - name: store_id
+        tests:
+          - not_null
+      - name: dept_id
+        tests:
+          - not_null
+      - name: store_type
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['A', 'B', 'C']
+      - name: store_size
+        tests:
+          - not_null
+
+  - name: walmart_fact_current
+    columns:
+      - name: fact_key
+        tests:
+          - unique
+          - not_null
+      - name: store_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('walmart_store_dim')
+              field: store_id
+      - name: date_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('walmart_date_dim')
+              field: date_id
+      - name: store_weekly_sales
+        tests:
+          - not_null
