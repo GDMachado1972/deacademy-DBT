@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    database: WALMART_DB
+    schema: RAW
+    tables:
+      - name: RAW_STORES
+      - name: RAW_SALES  # was RAW_DEPARTMENT
+      - name: RAW_FEATURES # was RAW_FACT
